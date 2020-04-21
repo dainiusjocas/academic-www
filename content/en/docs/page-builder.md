@@ -573,6 +573,10 @@ autolink = true
 #   1: Netlify (requires that the site is hosted by Netlify)
 #   2: formspree.io
 email_form = 2
+
+# Form success message path for Netlify https://docs.netlify.com/forms/setup/#success-messages
+# The path must be relative to the site root, starting with a /
+success_message = ""
 ```
 
 ### Contact links
@@ -581,7 +585,7 @@ Academic enables you to use a wide range of icons in your contact links. [Learn 
 
 ### Contact form
 
-You can choose whether to display simply an email address or a contact form. This can be chosen in `content/home/contact.md` by setting the `email_form` option. If set to 0, it will display your email address as a link, based on the value of `email` that you entered in `config/_default/params.toml`. If set to 1, it will use [Netlify](https://www.netlify.com/docs/form-handling/) to add a contact form with a captcha test so that visitors can send you email and spam from bots is prevented.
+You can choose whether to display simply an email address or a contact form. This can be chosen in `content/home/contact.md` by setting the `email_form` option. If set to 0, it will display your email address as a link, based on the value of `email` that you entered in `config/_default/params.toml`. If set to 1, it will use [Netlify](https://www.netlify.com/docs/form-handling/) to add a contact form with a captcha test so that visitors can send you email and spam from bots is prevented. Also, the default Netlify success message can be replaced with a custom page you create by adding the `success_message` attribute to the `contact` widget, entering the path of your custom page (like `"/pages/success"`) as the value. The path must be relative to the site root, starting with a `/`. 
 
 {{% alert note %}}
 The Netlify option is only available if you are hosting your site with Netlify. In this case, user messages to you will be sent to your Netlify account admin panel. A webhook can be created in your Netlify account if you wish to forward messages to your email address. When using Netlify to provide the contact form, you do not need to provide a value for `email` in `config/_default/params.toml` since the messages will be delivered to your Netlify admin panel.
